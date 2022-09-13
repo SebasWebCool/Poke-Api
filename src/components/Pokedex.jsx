@@ -78,12 +78,15 @@ const Pokedex = () => {
 
     <div>
       <header className='pokedex_header'>
-        
-        <div className="pokedex_top">
-          <img src="https://res.cloudinary.com/ddict5xw3/image/upload/v1661811371/Poke-Api/pokebola_paknoj.png" alt="Pokeball" />
-        </div>
-        <div className="pokedex_top">
+        <div className="pokedex_top  logo">
           <img src="https://i.pinimg.com/originals/bd/cd/20/bdcd20f5411ee5785889542d303ad4cb.png" alt="Pokeball" />
+        </div>
+        
+        <div className="pokedex_top ball">
+          <div className='pokedex_ball '>
+            <div className="pokedex_ball_center"></div>
+          </div>
+          {/* <img src="https://res.cloudinary.com/ddict5xw3/image/upload/v1661811371/Poke-Api/pokebola_paknoj.png" alt="Pokeball" /> */}
         </div>
       </header>
       <main className='pokedex_main'>
