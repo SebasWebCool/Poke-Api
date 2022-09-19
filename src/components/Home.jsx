@@ -22,13 +22,13 @@ const Home = () => {
     }
 
     return (
-        <div>
+        <div className='cont_home1'>
             <div className="cont_home">
                 <div className="home">
-                    <h1>Hi Trainer!</h1>
                     <div className="home_img">
-                        <img src="https://mario.wiki.gallery/images/thumb/a/a1/SSBU_Pokemon_Trainer_Solo_Artwork.png/1200px-SSBU_Pokemon_Trainer_Solo_Artwork.png" alt="Pokemon Trainer" />
+                        <img src="https://i.pinimg.com/originals/bd/cd/20/bdcd20f5411ee5785889542d303ad4cb.png" alt="Pokedex" />
                     </div>
+                    <h1>Hi Trainer!</h1>
                     <form className='home_form' action="" onSubmit={getTrainerName}>
                         <label htmlFor="name">Give me your name to start</label>
                         <div className="home_input">
@@ -40,11 +40,11 @@ const Home = () => {
                     </form>
                 </div>
             </div>
-            <footer className='pokedex_header'>
+            <footer className='home__footer'>
                
 
-                <div className="pokedex_top ball">
-                    <div className='pokedex_ball '>
+                <div className="home__footer__buttom">
+                    <div className='pokedex_ball  bottom'>
                         <div className="pokedex_ball_center"></div>
                     </div>
                 </div>
