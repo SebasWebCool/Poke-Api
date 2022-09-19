@@ -17,7 +17,7 @@ const PokemonDetails = () => {
   }, [])
 
 
-  console.log(pokeInfo)
+  // console.log(pokeInfo)
   return (
     <article className='pokeInfo'>
       <header className='info_header'>

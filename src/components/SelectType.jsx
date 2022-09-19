@@ -20,7 +20,7 @@ const SelectType = ({setSelectType, setPokeSearch, selectType}) => {
 
   return (
 
-    <select value={selectType} onChange={handleChange}>
+    <select className='pokedex__select' value={selectType} onChange={handleChange}>
         <option value="All">All pokemons</option>
         {
           listTypes?.map(type => (
