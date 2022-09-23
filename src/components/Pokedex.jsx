@@ -38,7 +38,7 @@ const Pokedex = () => {
           .then(res => {
             const arr = res.data.pokemon.map(e => e.pokemon)
             setTotalPokemons(arr)
-            setPokemons({ results: arr.slice(indexOfFirsPost,indexOfLastPost) })
+            setPokemons({ results: arr })
           })
           .catch(err => console.log(err))
       }
@@ -82,6 +82,9 @@ const Pokedex = () => {
   const paginate  = (pageNumber) =>{
     setcurrentPage(pageNumber)
   }
+  // console.log(currentPage);
+  const pokesShow = pokemons?.results.slice(indexOfFirsPost,indexOfLastPost)
+
 
   return (
 
@@ -109,7 +112,7 @@ const Pokedex = () => {
               <button>Search</button>
             </form>
 
-            <SelectType setPokeSearch={setPokeSearch} selectType={selectType} setSelectType={setSelectType} />
+            <SelectType setcurrentPage={setcurrentPage} setPokeSearch={setPokeSearch} selectType={selectType} setSelectType={setSelectType} />
           
           </div>
 
@@ -117,12 +120,13 @@ const Pokedex = () => {
 
         <div className='cont_cards'>
           {
-            pokemons?.results.map(pokemon => <PokemonCard url={pokemon.url} key={pokemon.name} />)
+            
+            pokesShow?.map(pokemon => <PokemonCard url={pokemon.url} key={pokemon.name} />)
           }
         </div>
       </main>
       <footer className='pokedex_footer'>
-          {/* <PaaginationSElect pokemonsShows={ pokemonsShows} totalPokemons={totalPokemons?.length} paginate={paginate}/> */}
+          <PaaginationSElect pokemonsShows={ pokemonsShows} totalPokemons={totalPokemons?.length} paginate={paginate}/>
         {/* <Pagination1  setNextPrevios={setNextPrevios} pokemonsPPage={pokemons?.results.length} totalPokemons={pokemons?.count}/> */}
       </footer>
     </div>

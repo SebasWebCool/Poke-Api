@@ -510,5 +510,22 @@ body{
 .flying__header{
   background: linear-gradient(179.75deg, #1d3d83 -19.96%, #02329b 67%, #001747 138.4%);
 }
+.page_cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.page_num{
+  margin: 20px 0;
 
+}
+.page_num a {
+  padding: 20px;
+  background-color: #fc3e3e;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
 

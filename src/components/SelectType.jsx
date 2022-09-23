@@ -1,7 +1,7 @@
 import React, { useEffect , useState } from 'react'
 import axios from 'axios'
 
-const SelectType = ({setSelectType, setPokeSearch, selectType}) => {
+const SelectType = ({setcurrentPage, setSelectType, setPokeSearch, selectType}) => {
 
     const [listTypes, setListTypes, ] = useState()
 
@@ -16,6 +16,7 @@ const SelectType = ({setSelectType, setPokeSearch, selectType}) => {
       
       setSelectType(e.target.value)
       setPokeSearch("")
+      setcurrentPage(1)
     }
 
   return (

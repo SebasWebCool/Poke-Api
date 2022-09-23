@@ -14,10 +14,10 @@ const PaaginationSElect = ({totalPokemons, pokemonsShows, paginate }) => {
     console.log(arr)
 
   return (
-<ul>
+<ul className='page_cont'>
    {
     arr.map( num => (
-        <li key={num}>
+        <li key={num} className="page_num">
           <a href="!#" onClick={(e) => {
             e.preventDefault()
             paginate(num)}}>{num}</a>  
