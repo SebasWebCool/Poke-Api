@@ -5,14 +5,19 @@ import PokemonCard from './Pokedex/PokemonCard'
 import { useSelector } from 'react-redux'
 import Pagination1 from './Pokedex/Pagination/Pagination1'
 import SelectType from './SelectType'
+import PaaginationSElect from './Pokedex/Pagination/PaaginationSElect'
 const Pokedex = () => {
 
   const [pokemons, setPokemons] = useState()
   const [pokeSearch, setPokeSearch] = useState()
   const [selectType, setSelectType] = useState("All")
-  const [nextPrevios, setNextPrevios] = useState(false)
-  const [existUrl, setExistUrl] = useState()
 
+    const [pokemonsShows, setpokemonsSho] = useState(20)
+    const [currentPage, setcurrentPage] = useState(1)
+
+    const [totalPokemons, setTotalPokemons] = useState()
+    const indexOfLastPost = currentPage * pokemonsShows
+    const indexOfFirsPost = indexOfLastPost - pokemonsShows
 
   const url = "https://pokeapi.co/api/v2/pokemon/"
 
@@ -32,7 +37,8 @@ const Pokedex = () => {
         axios.get(url)
           .then(res => {
             const arr = res.data.pokemon.map(e => e.pokemon)
-            setPokemons({ results: arr })
+            setTotalPokemons(arr)
+            setPokemons({ results: arr.slice(indexOfFirsPost,indexOfLastPost) })
           })
           .catch(err => console.log(err))
       }
@@ -73,6 +79,10 @@ const Pokedex = () => {
 
   // console.log(selectType)
 
+  const paginate  = (pageNumber) =>{
+    setcurrentPage(pageNumber)
+  }
+
   return (
 
 
@@ -112,6 +122,7 @@ const Pokedex = () => {
         </div>
       </main>
       <footer className='pokedex_footer'>
+          {/* <PaaginationSElect pokemonsShows={ pokemonsShows} totalPokemons={totalPokemons?.length} paginate={paginate}/> */}
         {/* <Pagination1  setNextPrevios={setNextPrevios} pokemonsPPage={pokemons?.results.length} totalPokemons={pokemons?.count}/> */}
       </footer>
     </div>
