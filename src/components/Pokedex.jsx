@@ -79,7 +79,6 @@ const Pokedex = () => {
     }
   }, [pokeSearch, selectType, changePage])
 
-  console.log(next);
 
   const NextPage = () => {
     setChangePage("b")
@@ -92,18 +91,16 @@ const Pokedex = () => {
     e.preventDefault()
     const pokeName = e.target.searchText.value.trim().toLowerCase()
     setPokeSearch(pokeName)
-    setSelectType("All")
     e.target.searchText.value = ""
+    setSelectType("All")
   }
 
   const nameTrainer = useSelector(state => state.nameTrainer)
 
-  // console.log(selectType)
 
   const paginate = (pageNumber) => {
     setcurrentPage(pageNumber)
   }
-  // console.log(currentPage);
   const pokesShow = pokemons?.results.slice(indexOfFirsPost, indexOfLastPost)
 
 

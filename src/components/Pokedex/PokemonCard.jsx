@@ -32,7 +32,6 @@ const PokemonCard = ({url}) => {
                 {
                     pokemon?.types.map(slot =>(
                         <li key={slot.type.url}>{slot.type.name}</li>
-                        // pokemon.types[1] ?  <li key={slot.type.url}>{slot.type.name} / </li>  :
                     ))
                 }
             </ul>

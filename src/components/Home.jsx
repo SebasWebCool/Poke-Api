@@ -18,7 +18,6 @@ const Home = () => {
             navigate('/pokedex')
         }
         e.target.name.value = ""
-        // console.log(inputValue)
     }
 
     return (

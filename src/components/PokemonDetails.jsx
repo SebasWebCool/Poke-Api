@@ -17,7 +17,7 @@ const PokemonDetails = () => {
   }, [])
 
 
-  // console.log(pokeInfo)
+  console.log(pokeInfo)
   return (
     <article className='pokeInfo'>
       <header className='info_header'>
@@ -54,7 +54,7 @@ const PokemonDetails = () => {
               <h3>Type</h3>
               <ul className='info_type_list' >
                 {
-                  pokeInfo?.types.map(type => (<li className='info_type_item' key={type.slot}>{type.type.name}</li>))
+                  pokeInfo?.types.map(type => (<li className={`info_type_item ${type.type.name}__header`} key={type.slot}>{type.type.name}</li>))
                 }
               </ul>
             </div>

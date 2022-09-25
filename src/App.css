@@ -393,9 +393,67 @@ body{
 }
 .info_aside_list{
   overflow-y: scroll;
-  height: 475px;
-
+  height: 500px;
 }
+.info_aside_item{
+  padding: 5px 0;
+  text-transform: capitalize;
+}
+.info_type_list{
+  width: 100%;
+}
+.info_type_item{
+  width: 100%;
+  padding: 8px;
+  color: white;
+  text-transform: capitalize;
+}
+.info_abilities_item{
+  padding: 5px 0;
+  text-transform: capitalize;
+}
+@media screen and (max-width:1000px) {
+  .pokeInfo{
+    height: auto;
+  }
+  .pokeInfo_cont{
+    flex-direction: column;
+  }
+  .pokeInfo_cont_main{
+    width: 100%;
+  }
+  .info_aside{
+    width: 100%;
+  }
+  .info_aside_list{
+    height: 200px;
+  }
+  .info_aside{
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width:600px) {
+  .pokeInfo_cont{
+    padding: 0 20px;
+  }
+}
+@media screen and (max-width:400px) {
+  .info_footer{
+    flex-direction: column;
+  }
+  .info_type{
+    width: 100%;
+  }
+  .info_header_img{
+    width: 220px;
+  }
+  .info_main_img{
+    width: 250px;
+    bottom: 100px;
+  }
+}
+ /* card pokemon color */
+
 .type__normal{
   border: solid 6px #735259;
   color: #735259;
@@ -515,6 +573,9 @@ body{
 .flying__header{
   background: linear-gradient(179.75deg, #1d3d83 -19.96%, #02329b 67%, #001747 138.4%);
 }
+
+/* pagination  */
+
 .page_cont{
   display: flex;
   justify-content: center;
