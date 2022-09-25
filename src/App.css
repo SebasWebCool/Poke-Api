@@ -27,7 +27,6 @@ body{
 }
 .home{
   width: 700px;
-  padding: 100px;
   background-color: white;
   opacity: 0.9;
   display: flex;
@@ -91,6 +90,20 @@ body{
 .bottom{
   top: 50px;
 }
+@media screen and (max-width:450px) {
+  .home_img{
+    width: 340px;
+  }
+}
+@media screen and (max-width:340px) {
+  .home_img{
+    width: 240px;
+  }
+  .home h1 {
+    font-size: 27px;
+  }
+  
+}
 /* Pokedex */
 .pokedex__serch__selec{
   display: flex;
@@ -130,6 +143,7 @@ body{
   margin: 10px 0;
 }
 .pokedex__select option{
+  text-transform: capitalize;
   padding: 0;
   padding: 30px;
 }
@@ -658,6 +672,7 @@ body{
   width: 100%;
 }
 .btn_next_previous{
+  cursor: pointer;
   background-color: #fc3e3e;
   font-size: 18px;
   font-weight: bolder;

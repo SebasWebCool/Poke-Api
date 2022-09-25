@@ -19,12 +19,15 @@ const SelectType = ({setcurrentPage, setSelectType, setPokeSearch, selectType}) 
       setcurrentPage(1)
     }
 
+    const list = listTypes?.slice(0,18)
+
+
   return (
 
     <select className='pokedex__select' value={selectType} onChange={handleChange}>
         <option value="All">All pokemons</option>
         {
-          listTypes?.map(type => (
+          list?.map(type => (
             <option key={type.name} value={type.name}> {type.name} </option>
           ))
         }
