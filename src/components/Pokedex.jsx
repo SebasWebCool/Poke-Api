@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import nameTrainerSlice from '../store/slices/nameTrainer.slice'
 import PokemonCard from './Pokedex/PokemonCard'
 import { useSelector } from 'react-redux'
-import Pagination1 from './Pokedex/Pagination/Pagination1'
 import SelectType from './SelectType'
 import PaaginationSElect from './Pokedex/Pagination/PaaginationSElect'
 const Pokedex = () => {
@@ -12,12 +11,16 @@ const Pokedex = () => {
   const [pokeSearch, setPokeSearch] = useState()
   const [selectType, setSelectType] = useState("All")
 
-    const [pokemonsShows, setpokemonsSho] = useState(20)
-    const [currentPage, setcurrentPage] = useState(1)
+  const [pokemonsShows, setpokemonsSho] = useState(20)
+  const [currentPage, setcurrentPage] = useState(1)
+  const [totalPokemons, setTotalPokemons] = useState()
 
-    const [totalPokemons, setTotalPokemons] = useState()
-    const indexOfLastPost = currentPage * pokemonsShows
-    const indexOfFirsPost = indexOfLastPost - pokemonsShows
+  const [next, setNext] = useState()
+  const [changePage, setChangePage] = useState("a")
+
+
+  const indexOfLastPost = currentPage * pokemonsShows
+  const indexOfFirsPost = indexOfLastPost - pokemonsShows
 
   const url = "https://pokeapi.co/api/v2/pokemon/"
 
@@ -44,28 +47,46 @@ const Pokedex = () => {
       }
 
     }
-    //  else if(nextPrevios){
-
-    //   let url = pokemons?.next
-
-    //   const obj1 ={
-    //     results:[
-    //       {
-    //         url
-    //       }
-    //     ]
-    //   }
-    //   setPokemons(obj1)
-    //   setNextPrevios(false)
-
-    // }    
     else {
-      axios.get(url)
-        .then(res => setPokemons(res.data)
-        )
-        .catch(err => console.log(err))
+      if (changePage != "a") {
+
+        if (changePage == "b") {
+          axios.get(next?.next)
+            .then(res => {
+              setPokemons(res.data)
+              setNext(res.data)
+              setChangePage(false)
+            })
+            .catch((err => console.log(err)))
+        } else if (changePage == "c") {
+          axios.get(next?.previous)
+            .then(res => {
+              setPokemons(res.data)
+              setNext(res.data)
+              setChangePage(false)
+            })
+            .catch((err => console.log(err)))
+        }
+      } else if (changePage == "a") {
+        axios.get(url)
+          .then(res => {
+            setPokemons(res.data)
+            setNext(res.data)
+          }
+          )
+          .catch(err => console.log(err))
+      }
     }
-  }, [pokeSearch, selectType])
+  }, [pokeSearch, selectType, changePage])
+
+  console.log(next);
+
+  const NextPage = () => {
+    setChangePage("b")
+  }
+  const PreviousPage = () => {
+    setChangePage("c")
+  }
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -79,11 +100,11 @@ const Pokedex = () => {
 
   // console.log(selectType)
 
-  const paginate  = (pageNumber) =>{
+  const paginate = (pageNumber) => {
     setcurrentPage(pageNumber)
   }
   // console.log(currentPage);
-  const pokesShow = pokemons?.results.slice(indexOfFirsPost,indexOfLastPost)
+  const pokesShow = pokemons?.results.slice(indexOfFirsPost, indexOfLastPost)
 
 
   return (
@@ -113,21 +134,32 @@ const Pokedex = () => {
             </form>
 
             <SelectType setcurrentPage={setcurrentPage} setPokeSearch={setPokeSearch} selectType={selectType} setSelectType={setSelectType} />
-          
+
           </div>
 
         </div>
 
         <div className='cont_cards'>
           {
-            
+
             pokesShow?.map(pokemon => <PokemonCard url={pokemon.url} key={pokemon.name} />)
           }
         </div>
       </main>
       <footer className='pokedex_footer'>
-          <PaaginationSElect pokemonsShows={ pokemonsShows} totalPokemons={totalPokemons?.length} paginate={paginate}/>
-        {/* <Pagination1  setNextPrevios={setNextPrevios} pokemonsPPage={pokemons?.results.length} totalPokemons={pokemons?.count}/> */}
+
+        {
+          selectType != "All" ? <PaaginationSElect pokemonsShows={pokemonsShows} totalPokemons={totalPokemons?.length} paginate={paginate} /> : ""
+        }
+
+      <div className="pokedex_btn_cont">
+        {
+          selectType == "All" && next?.previous ?  <button className='btn_next_previous' onClick={PreviousPage}>Back</button> : ""
+        }
+        {
+          selectType == "All" && next?.next ?  <button className='btn_next_previous' onClick={NextPage}>Next</button> : ""
+        }
+      </div>
       </footer>
     </div>
   )

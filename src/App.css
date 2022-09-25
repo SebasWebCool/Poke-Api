@@ -189,7 +189,7 @@ body{
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  gap: 10px;
+  gap: 25px;
 }
 
 
@@ -201,6 +201,11 @@ body{
   border: solid 6px  #7EC6C5;
   border-radius: 8px;
   color: #7EC6C5;
+  transition: ease-in-out .3s all ;
+  cursor: pointer;
+}
+.pokeCard_cont:hover{
+  scale: 1.1;
 }
 .pokeCard_header_bg{
   width: 100%;
@@ -527,5 +532,20 @@ body{
   color: white;
   font-size: 18px;
   font-weight: bold;
+}
+.pokedex_btn_cont{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+.btn_next_previous{
+  background-color: #fc3e3e;
+  font-size: 18px;
+  font-weight: bolder;
+  padding: 20px;
+  color: white;
+  border: none;
+  margin: 10px 0;
 }
 

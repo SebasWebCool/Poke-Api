@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 
 const PaaginationSElect = ({totalPokemons, pokemonsShows, paginate }) => {
-    console.log(totalPokemons)
 
     const numbersPages = Math.ceil(totalPokemons / pokemonsShows)
     
@@ -11,7 +10,6 @@ const PaaginationSElect = ({totalPokemons, pokemonsShows, paginate }) => {
     for(let i = 1; i <= numbersPages; i++ ){
         arr.push(i)
     }
-    console.log(arr)
 
   return (
 <ul className='page_cont'>
