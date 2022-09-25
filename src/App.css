@@ -173,7 +173,7 @@ body{
   width: 100%;
 }
 .pokedex_main{
-  margin: 20px 80px;
+  margin: 20px 60px;
 }
 .pokedex_welcome{
   padding: 20px 0;
@@ -285,7 +285,61 @@ body{
   font-weight: bold;
   margin: 5px;
 }
-
+@media screen and (max-width:710px) {
+  .pokeCard_cont {
+    width: 200px;
+  }
+  .pokedex_main{
+    margin: 20px 30px;
+  }
+  .pokeCard_stats_item{
+    width: 30%;
+  }
+  .ball{
+    left: 55vw;
+  }
+}
+@media screen and (max-width:485px) {
+  .pokedex__serch__selec{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .pokedex__form{
+    width: 100%;
+  }
+  .pokedex__select{
+    width: 50%;
+  }
+  .pokeCard_cont{
+    width: 100%;
+  }
+  .pokedex_welcome h3 {
+    font-size: 18px;
+  }
+  .pokedex_top{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ball{
+    left: 0;
+  }
+  .pokedex_top img  {
+    display: none;
+  }
+  .pokedex__form button{
+    font-size: 11px;
+  }
+  .pokedex__form input{
+    font-size: 11px;
+  }
+}
+@media screen and (max-width:300px) {
+  
+  
+}
 /* PokeDetails */
 
 .pokeInfo{
@@ -454,6 +508,9 @@ body{
 }
  /* card pokemon color */
 
+.grass__header{
+  background: linear-gradient(178.92deg, #7EC6C5 0.92%, #ABDAC6 47.96%, #CAE099 99.08%);
+}
 .type__normal{
   border: solid 6px #735259;
   color: #735259;
